@@ -33,6 +33,10 @@ let TodoController = TodoController_1 = class TodoController {
         this.logger.log('Handling findOne() request with id =' + id) + '...';
         return this.todoService.findOne(id);
     }
+    update(id, todo) {
+        this.logger.log('Handling update() request with id =' + id + '...');
+        return this.todoService.update(id, todo);
+    }
 };
 __decorate([
     (0, common_1.Post)(),
@@ -54,6 +58,14 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Object)
 ], TodoController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Put)(':id'),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Object]),
+    __metadata("design:returntype", void 0)
+], TodoController.prototype, "update", null);
 TodoController = TodoController_1 = __decorate([
     (0, common_1.Controller)('todo'),
     __metadata("design:paramtypes", [todo_service_1.TodoService])

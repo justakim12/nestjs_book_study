@@ -6,6 +6,7 @@ import {
   Param,
   ParseIntPipe,
   Post,
+  Put,
 } from '@nestjs/common';
 import { Todo } from './todo.interface';
 import { TodoService } from './todo.service';
@@ -31,5 +32,11 @@ export class TodoController {
   findOne(@Param('id', ParseIntPipe) id: number): Todo {
     this.logger.log('Handling findOne() request with id =' + id) + '...';
     return this.todoService.findOne(id);
+  }
+
+  @Put(':id')
+  update(@Param('id', ParseIntPipe) id: number, @Body() todo: Todo): void {
+    this.logger.log('Handling update() request with id =' + id + '...');
+    return this.todoService.update(id, todo);
   }
 }

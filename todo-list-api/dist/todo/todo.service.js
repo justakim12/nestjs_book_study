@@ -30,6 +30,10 @@ let TodoService = class TodoService {
     findOne(id) {
         return this.storage.find((t) => t.id === id);
     }
+    update(id, todo) {
+        const index = this.storage.findIndex((t) => t.id === id);
+        this.storage[index] = todo;
+    }
 };
 TodoService = __decorate([
     (0, common_1.Injectable)()

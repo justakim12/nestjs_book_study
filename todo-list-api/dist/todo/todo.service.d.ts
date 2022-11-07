@@ -4,4 +4,5 @@ export declare class TodoService {
     create(todo: Todo): void;
     findAll(): Todo[];
     findOne(id: number): Todo;
+    update(id: number, todo: Todo): void;
 }
