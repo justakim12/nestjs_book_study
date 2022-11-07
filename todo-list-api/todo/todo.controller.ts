@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Logger,
   Param,
@@ -38,5 +39,11 @@ export class TodoController {
   update(@Param('id', ParseIntPipe) id: number, @Body() todo: Todo): void {
     this.logger.log('Handling update() request with id =' + id + '...');
     return this.todoService.update(id, todo);
+  }
+
+  @Delete(':id')
+  remove(@Param('id', ParseIntPipe) id: number): void {
+    this.logger.log('Handling remove() request with id =' + id + '...');
+    return this.todoService.remove(id);
   }
 }

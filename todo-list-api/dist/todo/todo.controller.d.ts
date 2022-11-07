@@ -8,4 +8,5 @@ export declare class TodoController {
     findAll(): Todo[];
     findOne(id: number): Todo;
     update(id: number, todo: Todo): void;
+    remove(id: number): void;
 }

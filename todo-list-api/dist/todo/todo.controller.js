@@ -37,6 +37,10 @@ let TodoController = TodoController_1 = class TodoController {
         this.logger.log('Handling update() request with id =' + id + '...');
         return this.todoService.update(id, todo);
     }
+    remove(id) {
+        this.logger.log('Handling remove() request with id =' + id + '...');
+        return this.todoService.remove(id);
+    }
 };
 __decorate([
     (0, common_1.Post)(),
@@ -66,6 +70,13 @@ __decorate([
     __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", void 0)
 ], TodoController.prototype, "update", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", void 0)
+], TodoController.prototype, "remove", null);
 TodoController = TodoController_1 = __decorate([
     (0, common_1.Controller)('todo'),
     __metadata("design:paramtypes", [todo_service_1.TodoService])

@@ -34,6 +34,10 @@ let TodoService = class TodoService {
         const index = this.storage.findIndex((t) => t.id === id);
         this.storage[index] = todo;
     }
+    remove(id) {
+        const index = this.storage.findIndex((t) => t.id === id);
+        this.storage.splice(index, 1);
+    }
 };
 TodoService = __decorate([
     (0, common_1.Injectable)()
