@@ -12,6 +12,24 @@ let TodoService = class TodoService {
     constructor() {
         this.storage = [];
     }
+    create(todo) {
+        let currentMaxId;
+        if (this.storage.length === 0) {
+            currentMaxId = 0;
+        }
+        else {
+            currentMaxId = Math.max(...this.storage.map((t) => t.id));
+        }
+        todo.id = currentMaxId + 1;
+        this.storage.push(todo);
+        console.log(todo.id);
+    }
+    findAll() {
+        return this.storage;
+    }
+    findOne(id) {
+        return this.storage.find((t) => t.id === id);
+    }
 };
 TodoService = __decorate([
     (0, common_1.Injectable)()

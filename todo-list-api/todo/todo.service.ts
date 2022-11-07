@@ -4,4 +4,24 @@ import { Todo } from './todo.interface';
 @Injectable()
 export class TodoService {
   private storage: Todo[] = [];
+
+  create(todo: Todo): void {
+    let currentMaxId;
+    if (this.storage.length === 0) {
+      currentMaxId = 0;
+    } else {
+      currentMaxId = Math.max(...this.storage.map((t: Todo) => t.id));
+    }
+    todo.id = currentMaxId + 1;
+    this.storage.push(todo);
+    console.log(todo.id);
+  }
+
+  findAll(): Todo[] {
+    return this.storage;
+  }
+
+  findOne(id: number): Todo {
+    return this.storage.find((t: Todo) => t.id === id);
+  }
 }
